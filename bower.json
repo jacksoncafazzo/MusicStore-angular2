@@ -1,0 +1,19 @@
+{
+  "name": "todo-angular2",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "moduleType": ["globals",
+    "node"],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
