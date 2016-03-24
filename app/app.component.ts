@@ -20,7 +20,10 @@ export class AppComponent {
     this.albums = [
       new Album("Houses of the Holy", "Led Zepplin", 1, "Rock"),
       new Album("The Big Roar", "Joy Formidable", 10, "Indie"),
-      new Album("Built on Glass", "Chet Faker", 10, "Australian")
+      new Album("Built on Glass", "Chet Faker", 10, "Australian"),
+      new Album("Flume", "Flume", 10, "Australian"),
+      new Album("The Song Remains the Same", "Led Zepplin", 1, "Rock"),
+      new Album("Chet Faker", "Chet Faker", 7, "Soul")
     ]
   }
   albumWasSelected(clickedAlbum: Album): void {
