@@ -1,15 +1,20 @@
-h1 {
-  color: lighten(blue, 15%);
-}
+$primaryText: white;
 
-.selected {
-  color: darken(#22bdf0, 25%);
-  background-color: lighten(salmon, 10%);
-  font-style: italic;
-
-}
-
-task-list {
-  display: flex;
-  flex-direction: column;
+body {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("/resources/images/background.jpg");
+  background-size: cover;
+  h1 {
+    color: $primaryText;
+    text-shadow: 2px 2px 2px lightgrey;
+    font-size: 5em;
+  }
+  h3, h4, label {
+    color: $primaryText;
+  }
+  h3 {
+    text-shadow: 1px 1px 1px black;
+  }
+  h4 {
+    letter-spacing: 1px;
+  }
 }

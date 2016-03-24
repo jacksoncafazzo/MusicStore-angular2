@@ -2,17 +2,21 @@ import { Component, EventEmitter } from 'angular2/core';
 import { Album } from './album.model';
 import { ArtistPipe } from './artist.pipe';
 import { GenrePipe } from './genre.pipe';
+import { AlbumComponent } from './album.component';
 
 @Component({
   selector: 'album-list',
   inputs: ['albumList'], // we use this array below in directive
   outputs: ['onAlbumSelect'], //output to create custom event emitter
+  directives: [AlbumComponent],
   pipes: [ArtistPipe, GenrePipe],
   template: `
+  <label>Sort by Artist:</label>
   <select (change)="onArtistChange($event.target.value)" class="filter">
     <option value="all" selected="selected">Show All</option>
     <option *ngFor="#artist of artistList" value="{{ artist }}">{{ artist }}</option>
   </select>
+  <label>Sort by Genre:</label>
   <select (change)="onGenreChange($event.target.value)" class="filter">
     <option value="all" selected="selected">Show All</option>
     <option *ngFor="#genre of genreList" value="{{ genre }}">{{ genre }}</option>

@@ -8,6 +8,7 @@ import { AlbumListComponent } from './album-list.component';
   template: `
   <div class="container">
     <h1>Music Store</h1>
+    <hr>
     <album-list [albumList]="albums" (onAlbumSelect)="albumWasSelected($event)">
     </album-list>
   </div>
