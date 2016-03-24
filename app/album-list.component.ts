@@ -15,7 +15,7 @@ import { GenrePipe } from './genre.pipe';
   </select>
   <select (change)="onGenreChange($event.target.value)" class="filter">
     <option value="all" selected="selected">Show All</option>
-    <option *ngFor="#album of albumList" value="{{ album.genre }}">{{ album.genre }}</option>
+    <option *ngFor="#genre of genreList" value="{{ genre }}">{{ genre }}</option>
   </select>
   <div *ngFor="#album of albumList | artist:filterArtist | genre:filterGenre">
     <h3>{{ album.name }} : {{ album.artist }} \${{ album.price }}</h3>
@@ -27,6 +27,7 @@ import { GenrePipe } from './genre.pipe';
 export class AlbumListComponent {
   public albumList: Album[]; // These are properties.
   public artistList: string[] = [];
+  public genreList: string[] = [];
   public onAlbumSelect: EventEmitter<Album>;
   public selectedAlbum: Album;
   public filterArtist: string = "all";
@@ -35,22 +36,30 @@ export class AlbumListComponent {
     this.onAlbumSelect = new EventEmitter();
   }
   ngOnInit() {
-    console.log(this.albumList);
     var artistList = this.artistList;
     var albumList = this.albumList;
-
+    var genreList = this.genreList;
     this.albumList.forEach(function(album){
       var found = false;
-      console.log(artistList);
       for (var i = 0; i < artistList.length && !found; i++){
         if(artistList[i] === album.artist) {
-          console.log(artistList[i]);
-          console.log(album.artist);
           found = true;
         }
       }
       if (found === false) {
         artistList.push(album.artist);
+      }
+    });
+    // Load list of genre's on load
+    this.albumList.forEach(function(album){
+      var found = false;
+      for (var i = 0; i < genreList.length && !found; i++){
+        if(genreList[i] === album.genre) {
+          found = true;
+        }
+      }
+      if (found === false) {
+        genreList.push(album.genre);
       }
     });
   }
