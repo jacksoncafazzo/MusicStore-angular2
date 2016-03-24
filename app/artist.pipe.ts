@@ -24,5 +24,8 @@ export class ArtistPipe implements PipeTransform {
         return album.artist === "Chet Faker";
       })
     }
+    else {
+      return input;
+    }
   }
 }
